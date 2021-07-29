@@ -4,12 +4,10 @@ function App() {
   return (
     <div className="App">
       <Folder name="Desktop">
-        <h3>some stuff</h3>
-        <h4>other things</h4>
+        <File name="Dogs.jpeg" />
+        <File name="Cats.jpeg" />
       </Folder>
       <Folder name="Applications" />
-      <File name="Dogs.jpeg" />
-      <File name="Cats.jpeg" />
     </div>
   );
 }
@@ -18,7 +16,7 @@ function App() {
 const Folder = (props) => {
   console.log(props);
   return (
-    <div>
+    <div style={{ border: "2px solid teal" }}>
       {props.name}
       {props.children}
     </div>
