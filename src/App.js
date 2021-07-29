@@ -1,9 +1,9 @@
-import React from "react";
+import { React, useState } from "react";
 
 function App() {
   return (
     <div className="App">
-      <Folder name="Desktop" isOpen={false}>
+      <Folder name="Desktop">
         <Folder name="Music">
           <File name="song1.mp4" />
           <File name="song2.mp4" />
@@ -18,11 +18,17 @@ function App() {
 
 //An entity containing more things
 const Folder = (props) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   //destructuring the props object
-  const { name, isOpen, children } = props;
+  const { name, children } = props;
   return (
     <div>
-      {name}
+      <span onClick={handleClick}>{name}</span>
       <div style={{ marginLeft: "17px" }}>{isOpen ? children : null}</div>
     </div>
   );
