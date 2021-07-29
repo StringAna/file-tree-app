@@ -3,7 +3,7 @@ import React from "react";
 function App() {
   return (
     <div className="App">
-      <Folder name="Desktop">
+      <Folder name="Desktop" isOpen={false}>
         <Folder name="Music">
           <File name="song1.mp4" />
           <File name="song2.mp4" />
@@ -18,11 +18,12 @@ function App() {
 
 //An entity containing more things
 const Folder = (props) => {
-  console.log(props);
+  //destructuring the props object
+  const { name, isOpen, children } = props;
   return (
     <div>
-      {props.name}
-      <div style={{ marginLeft: "17px" }}>{props.children}</div>
+      {name}
+      <div style={{ marginLeft: "17px" }}>{isOpen ? children : null}</div>
     </div>
   );
 };
